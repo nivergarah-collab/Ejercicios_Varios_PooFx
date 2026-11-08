@@ -24,3 +24,4 @@ Para descargar un ejercicio, cambia a su rama con el selector de ramas de GitHub
 | ej07 | Playlist | [`ej07-playlist_base`](../../tree/ej07-playlist_base) | [`ej07-playlist_solucion`](../../tree/ej07-playlist_solucion) |
 | ej08 | Agenda | [`ej08-agenda_base`](../../tree/ej08-agenda_base) | [`ej08-agenda_solucion`](../../tree/ej08-agenda_solucion) |
 | ej09 | Películas | [`ej09-peliculas_base`](../../tree/ej09-peliculas_base) | [`ej09-peliculas_solucion`](../../tree/ej09-peliculas_solucion) |
+| ej10 | Vivero (simulacro EP2 del curso, solución del profesor) | [`ej10-vivero_base`](../../tree/ej10-vivero_base) | [`ej10-vivero_solucion`](../../tree/ej10-vivero_solucion) |
