@@ -9,7 +9,8 @@
       <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
    </padding>
    <children>
-      <GridPane>
+      <Label style="-fx-font-weight: bold;" text="Registro de inscripción" />
+      <GridPane hgap="10.0" vgap="6.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,14 +32,14 @@
             <TextField fx:id="txtRondas" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <HBox fx:id="boxEquipo" spacing="10.0">
+      <HBox fx:id="boxEquipo" alignment="CENTER_LEFT" spacing="10.0">
          <children>
             <Label text="Capitán" />
             <TextField fx:id="txtCapitan" />
             <CheckBox fx:id="chkCanchaTechada" mnemonicParsing="false" text="Cancha techada" />
          </children>
       </HBox>
-      <HBox fx:id="boxIndividual" spacing="10.0">
+      <HBox fx:id="boxIndividual" alignment="CENTER_LEFT" spacing="10.0">
          <children>
             <Label text="Ranking" />
             <TextField fx:id="txtRanking" prefWidth="80.0" />
@@ -48,6 +49,8 @@
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Inscripciones registradas" />
       <TableView fx:id="tblInscripciones" prefHeight="300.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
@@ -61,6 +64,8 @@
          </columnResizePolicy>
       </TableView>
       <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
+      <Separator />
+      <Label style="-fx-font-weight: bold;" text="Mensajes" />
       <Label fx:id="lblMensaje" wrapText="true" />
    </children>
 </VBox>
