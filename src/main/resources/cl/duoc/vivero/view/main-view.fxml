@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cl.duoc.vivero.controller.MainController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.vivero.controller.MainController">
+   <children>
+      <HBox layoutY="-4.0" prefHeight="542.0" prefWidth="682.0" spacing="10.0">
+         <children>
+            <Label text="    Vivero Hojas Del Sur">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="alertaLabel" layoutX="10.0" layoutY="10.0" prefHeight="44.0" prefWidth="316.0" text="Alerta" textFill="#d30606" visible="false">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Label>
+         </children></HBox>
+      <VBox layoutX="7.0" layoutY="48.0" prefHeight="426.0" prefWidth="184.0" spacing="5.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="98.0" text="Tipo de Planta" />
+            <ChoiceBox fx:id="tipoChoice" onAction="#onSeleccionarTipo" prefWidth="150.0" />
+            <Label prefHeight="22.0" prefWidth="147.0" text="Nombre" />
+            <TextField fx:id="nombreText" />
+            <Label text="Altura" />
+            <TextField fx:id="alturaText" />
+            <Label prefHeight="17.0" prefWidth="182.0" text="Cantidad" />
+            <TextField fx:id="cantidadText" />
+            <VBox fx:id="interiorBox" prefHeight="77.0" prefWidth="184.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="186.0" text="Plantas Interior" underline="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Volumen de Maceta (L)" />
+                  <TextField fx:id="volumenText" />
+               </children>
+            </VBox>
+            <VBox fx:id="exteriorBox" prefHeight="102.0" prefWidth="184.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="23.0" prefWidth="184.0" text="Plantas Exterior" underline="true">
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="183.0" text="Especie" />
+                  <TextField fx:id="especieText" />
+                  <CheckBox fx:id="resistenteCheck" mnemonicParsing="false" text="Resiste las Heladas" />
+                  <CheckBox fx:id="disponibleCheck" mnemonicParsing="false" text="Lista para despacho" />
+               </children>
+            </VBox>
+            <HBox prefHeight="41.0" prefWidth="184.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onGuardar" prefHeight="33.0" prefWidth="184.0" text="Guardar" />
+                  <Button mnemonicParsing="false" onAction="#onLimpiar" prefHeight="34.0" prefWidth="174.0" text="Limpiar" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="226.0" layoutY="105.0" prefHeight="359.0" prefWidth="419.0" spacing="20.0">
+         <children>
+            <TableView fx:id="plantaTableView" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="tipoColumn" prefWidth="75.0" text="Tipo" />
+                <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="alturaColumn" prefWidth="75.0" text="Altura (cm) " />
+                  <TableColumn fx:id="cantidadColumn" prefWidth="75.0" text="Cantidad" />
+                  <TableColumn fx:id="precioColumn" prefWidth="75.0" text="Precio unitario" />
+              </columns>
+               <opaqueInsets>
+                  <Insets left="10.0" />
+               </opaqueInsets>
+            </TableView>
+            <Button mnemonicParsing="false" onAction="#onEliminar" prefHeight="35.0" prefWidth="160.0" text="Eliminar">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </children>
 </AnchorPane>
