@@ -11,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class MainController {
@@ -34,9 +35,11 @@ public class MainController {
     @FXML private TextField nombreText;
     @FXML private TextField alturaText;
     @FXML private TextField cantidadText;
-    // Campos Planta Interior
+    // Campos Planta Interior (interiorBox agrupa todos los datos propios de la planta de interior)
+    @FXML private VBox interiorBox;
     @FXML private TextField volumenText;
-    // Campos Planta Exterior
+    // Campos Planta Exterior (exteriorBox agrupa todos los datos propios de la planta de exterior)
+    @FXML private VBox exteriorBox;
     @FXML private TextField especieText;
     @FXML private CheckBox resistenteCheck;
     @FXML private CheckBox disponibleCheck;
@@ -58,13 +61,8 @@ public class MainController {
         // Inicializando tipos de datos
         this.tipoChoice.getItems().add(TIPO_INTERIOR);
         this.tipoChoice.getItems().add(TIPO_EXTERIOR);
-        // Bloqueando campos no seleccionados
-        // Los campos Interiores
-        this.volumenText.setDisable(true);
-        // Campos Exteriores
-        this.especieText.setDisable(true);
-        this.resistenteCheck.setDisable(true);
-        this.disponibleCheck.setDisable(true);
+        // Sin tipo elegido: ambos grupos de campos quedan deshabilitados
+        this.habilitarCamposPorTipo(null);
         this.configurarTableView();
         try{
             this.repository.cargar();
@@ -89,41 +87,13 @@ public class MainController {
 
     @FXML
     public void onSeleccionarTipo(){
-        String tipoPlanta = this.tipoChoice.getValue();
-        if(tipoPlanta == null || tipoPlanta.isEmpty()){
-            // Sin tipo elegido (por ejemplo, tras limpiar): todo deshabilitado y sin aviso
-            this.volumenText.setDisable(true);
-            this.especieText.setDisable(true);
-            this.resistenteCheck.setDisable(true);
-            this.disponibleCheck.setDisable(true);
-            return;
-        }
-        switch(tipoPlanta){
-            case TIPO_INTERIOR:
-                // Los campos Interiores
-                this.volumenText.setDisable(false);
-                // Campos Exteriores
-                this.especieText.setDisable(true);
-                this.resistenteCheck.setDisable(true);
-                this.disponibleCheck.setDisable(true);
-                break;
-            case TIPO_EXTERIOR:
-                // Los campos Interiores
-                this.volumenText.setDisable(true);
-                // Campos Exteriores
-                this.especieText.setDisable(false);
-                this.resistenteCheck.setDisable(false);
-                this.disponibleCheck.setDisable(false);
-                break;
-            default:
-                // Los campos Interiores
-                this.volumenText.setDisable(true);
-                // Campos Exteriores
-                this.especieText.setDisable(true);
-                this.resistenteCheck.setDisable(true);
-                this.disponibleCheck.setDisable(true);
-                this.setAlertaLabelMensaje(ALERTA_NO_SELECCIONADO,"Campo Seleccionar Tipo");
-        }
+        this.habilitarCamposPorTipo(this.tipoChoice.getValue());
+    }
+
+    /** Habilita solo el grupo de campos del tipo elegido; sin tipo válido deshabilita ambos, sin aviso. */
+    private void habilitarCamposPorTipo(String tipoPlanta){
+        this.interiorBox.setDisable(!TIPO_INTERIOR.equals(tipoPlanta));
+        this.exteriorBox.setDisable(!TIPO_EXTERIOR.equals(tipoPlanta));
     }
 
     @FXML
