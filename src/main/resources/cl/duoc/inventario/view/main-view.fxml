@@ -65,6 +65,7 @@
       </TableView>
       <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
       <Separator />
+      <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Mensajes" />
       <Label fx:id="lblMensaje" wrapText="true" />
    </children>
 </VBox>
