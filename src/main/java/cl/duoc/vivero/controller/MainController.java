@@ -90,6 +90,14 @@ public class MainController {
     @FXML
     public void onSeleccionarTipo(){
         String tipoPlanta = this.tipoChoice.getValue();
+        if(tipoPlanta == null || tipoPlanta.isEmpty()){
+            // Sin tipo elegido (por ejemplo, tras limpiar): todo deshabilitado y sin aviso
+            this.volumenText.setDisable(true);
+            this.especieText.setDisable(true);
+            this.resistenteCheck.setDisable(true);
+            this.disponibleCheck.setDisable(true);
+            return;
+        }
         switch(tipoPlanta){
             case TIPO_INTERIOR:
                 // Los campos Interiores
@@ -125,12 +133,28 @@ public class MainController {
         try {
             // Se asignan las variables de los controladores generales
             String tipo = this.tipoChoice.getValue();
+            if(tipo == null || tipo.isEmpty()){
+                this.setAlertaLabelMensaje(ALERTA_NO_SELECCIONADO, "Campo Tipo de Planta: debe seleccionar un tipo");
+                return;
+            }
             String nombre = this.nombreText.getText();
-            int alturaCm = Integer.parseInt(this.alturaText.getText());
-            int cantidad = Integer.parseInt(this.cantidadText.getText());
+            Integer alturaCm = this.leerEntero(this.alturaText, "altura");
+            if(alturaCm == null){
+                return;
+            }
+            Integer cantidad = this.leerEntero(this.cantidadText, "cantidad");
+            if(cantidad == null){
+                return;
+            }
             switch (tipo){
                 case TIPO_INTERIOR:
-                    double volumenMacetaLitros = Double.parseDouble(this.volumenText.getText());
+                    double volumenMacetaLitros;
+                    try{
+                        volumenMacetaLitros = Double.parseDouble(this.volumenText.getText().trim().replace(',', '.'));
+                    }catch (NumberFormatException e){
+                        this.setAlertaLabelMensaje(ALERTA_NO_VALIDO, "Campo volumen debe ser un número (acepta decimales)");
+                        return;
+                    }
                     if(volumenMacetaLitros <= 0.0){
                         this.setAlertaLabelMensaje(ALERTA_NO_VALIDO, "Campo volumen debe ser mayor que cero");
                         return;
@@ -141,6 +165,7 @@ public class MainController {
                     String especie = this.especieText.getText();
                     if(especie.isEmpty() || especie.trim().isBlank()){
                         this.setAlertaLabelMensaje(ALERTA_NO_VALIDO, "campo especie no puede estar vacia ni contener solo espacios");
+                        return;
                     }
                     boolean resistenteHeladas = this.resistenteCheck.isSelected();
                     boolean listaParaDespacho = this.disponibleCheck.isSelected();
@@ -163,15 +188,32 @@ public class MainController {
             }
 
             this.setAlertaLabelMensaje(ALERTA_EXITO, "Planta - "+planta.getNombre());
+            // El formulario queda listo para un nuevo registro (se conserva el mensaje de éxito)
+            this.limpiarCampos();
 
         }catch (IllegalArgumentException e){
             this.setAlertaLabelMensaje(ALERTA_NO_VALIDO,e.getMessage());
         }
     }
 
+    /** Lee un entero del campo; si no es un número entero, informa el campo y devuelve null. */
+    private Integer leerEntero(TextField campo, String nombreCampo){
+        try{
+            return Integer.parseInt(campo.getText().trim());
+        }catch (NumberFormatException e){
+            this.setAlertaLabelMensaje(ALERTA_NO_VALIDO, "Campo " + nombreCampo + " debe ser un número entero");
+            return null;
+        }
+    }
+
     @FXML
     public void onLimpiar(){
-        this.tipoChoice.setValue("");
+        this.limpiarCampos();
+        this.setAlertaLabelMensaje(ALERTA_DEFAULT,"");
+    }
+
+    private void limpiarCampos(){
+        this.tipoChoice.setValue(null);
         this.nombreText.setText("");
         this.alturaText.setText("");
         this.cantidadText.setText("");
@@ -179,7 +221,6 @@ public class MainController {
         this.especieText.setText("");
         this.resistenteCheck.setSelected(false);
         this.disponibleCheck.setSelected(false);
-        this.setAlertaLabelMensaje(ALERTA_DEFAULT,"");
     }
 
     private void setAlertaLabelMensaje(String tipo,String mensaje){
@@ -227,7 +268,7 @@ public class MainController {
             return;
         }
         this.actualizarTableView();
-        this.setAlertaLabelMensaje(ALERTA_ELIMINADO, "");
+        this.setAlertaLabelMensaje(ALERTA_ELIMINADO, "Planta - " + seleccionada.getNombre() + " (" + seleccionada.getTipo() + ")");
     }
 
 }

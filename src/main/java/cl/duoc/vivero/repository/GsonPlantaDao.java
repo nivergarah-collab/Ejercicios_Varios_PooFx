@@ -44,7 +44,7 @@ public class GsonPlantaDao<T extends Planta> implements PlantaDao<T> {
                 }
             }
             return validas;
-        }catch (IOException e){
+        }catch (IOException | JsonParseException e){
             throw new PersistenciaException(PersistenciaException.ALERTA_LECTURA,e);
         }
     }
