@@ -50,6 +50,7 @@
       </HBox>
       <Button mnemonicParsing="false" onAction="#onRegistrar" text="Registrar" />
       <Separator />
+      <Label style="-fx-font-weight: bold;" text="Préstamos registrados" />
       <TableView fx:id="tblPrestamos" prefHeight="300.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
@@ -64,6 +65,7 @@
       </TableView>
       <Button mnemonicParsing="false" onAction="#onEliminar" text="Eliminar" />
       <Separator />
+      <Label style="-fx-font-weight: bold;" text="Mensajes" />
       <Label fx:id="lblMensaje" wrapText="true" />
    </children>
 </VBox>
