@@ -16,5 +16,11 @@ Para descargar un ejercicio, cambia a su rama con el selector de ramas de GitHub
 | Ejercicio | Tema | Rama base | Rama solución |
 |---|---|---|---|
 | ej01 | Clínica veterinaria | [`ej01-veterinaria_base`](../../tree/ej01-veterinaria_base) | [`ej01-veterinaria_solucion`](../../tree/ej01-veterinaria_solucion) |
-
-Más ejercicios se irán agregando.
+| ej02 | Biblioteca | [`ej02-biblioteca_base`](../../tree/ej02-biblioteca_base) | [`ej02-biblioteca_solucion`](../../tree/ej02-biblioteca_solucion) |
+| ej03 | Turnos | [`ej03-turnos_base`](../../tree/ej03-turnos_base) | [`ej03-turnos_solucion`](../../tree/ej03-turnos_solucion) |
+| ej04 | Inventario | [`ej04-inventario_base`](../../tree/ej04-inventario_base) | [`ej04-inventario_solucion`](../../tree/ej04-inventario_solucion) |
+| ej05 | Torneo | [`ej05-torneo_base`](../../tree/ej05-torneo_base) | [`ej05-torneo_solucion`](../../tree/ej05-torneo_solucion) |
+| ej06 | Gastos | [`ej06-gastos_base`](../../tree/ej06-gastos_base) | [`ej06-gastos_solucion`](../../tree/ej06-gastos_solucion) |
+| ej07 | Playlist | [`ej07-playlist_base`](../../tree/ej07-playlist_base) | [`ej07-playlist_solucion`](../../tree/ej07-playlist_solucion) |
+| ej08 | Agenda | [`ej08-agenda_base`](../../tree/ej08-agenda_base) | [`ej08-agenda_solucion`](../../tree/ej08-agenda_solucion) |
+| ej09 | Películas | [`ej09-peliculas_base`](../../tree/ej09-peliculas_base) | [`ej09-peliculas_solucion`](../../tree/ej09-peliculas_solucion) |
