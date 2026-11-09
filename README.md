@@ -6,6 +6,10 @@ Ejercicio de práctica de **Programación Orientada a Objetos**: construir una a
 >
 > Este material es de práctica, creado con ayuda de inteligencia artificial. No reemplaza ninguna pauta oficial, y los resultados que obtengas aquí no aseguran el mismo resultado en una evaluación real.
 
+> **Variante v2**
+>
+> Esta rama es la misma base, pero la carpeta `repository` ya viene hecha (`GsonPrestamoDao.java`, `PersistenciaException.java`, `PrestamoDao.java`, `PrestamoRepository.java`). El controlador, el `module-info.java`, las dependencias del `pom.xml` y las vistas siguen siendo tarea tuya.
+
 ## Cómo abrir el proyecto
 
 1. Descomprime o copia la carpeta del proyecto en tu carpeta de trabajo.
