@@ -2,6 +2,10 @@
 
 Proyecto base del ejercicio de práctica de **Programación Orientada a Objetos (DSY1102)**: construir una aplicación de escritorio con **JavaFX** y archivos **JSON** sobre un modelo de clases ya entregado. El caso completo está en [`ENUNCIADO.md`](../ENUNCIADO.md).
 
+> **Variante v2**
+>
+> Esta rama es la misma base, pero la carpeta `repository` ya viene hecha (`GsonInscripcionDao.java`, `InscripcionDao.java`, `InscripcionRepository.java`, `PersistenciaException.java`). El controlador, el `module-info.java`, las dependencias del `pom.xml` y las vistas siguen siendo tarea tuya.
+
 ## Cómo abrirlo
 
 1. Abre IntelliJ IDEA y elige **File → Open...**, luego selecciona esta carpeta (`base`).
