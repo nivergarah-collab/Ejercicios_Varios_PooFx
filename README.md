@@ -9,6 +9,10 @@ Simulacro de la **Evaluación Parcial 2** de *Programación Orientada a Objetos*
 | **Tecnologías** | Java 21 · Maven · JavaFX 21.0.6 · Gson |
 | **Tiempo** | 3 bloques, individual |
 
+> **Variante v2**
+>
+> Esta rama es la misma base, pero la carpeta `repository` ya viene hecha (`GsonPlantaDao.java`, `PersistenciaException.java`, `PlantaDao.java`, `PlantaRepository.java`). El controlador, el `module-info.java`, las dependencias del `pom.xml` y las vistas siguen siendo tarea tuya.
+
 ## Ramas
 
 - `main`: **condiciones de la prueba**, con el mismo formato que los proyectos base de la evaluación (versión 3.1). Trae `Launcher`, `App`, el modelo (`cl.duoc.vivero.model`), un `pom.xml` con JavaFX y un comentario donde va Gson, y una carpeta `view` vacía. La vista `main-view.fxml`, los controladores, el DAO, el Repository y la dependencia de Gson se construyen como parte de la evaluación. No hay `module-info.java`: el proyecto corre con classpath.
