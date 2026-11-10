@@ -1,14 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cl.duoc.vivero.controller.MainController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="638.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.duoc.vivero.controller.MainController">
+   <children>
+      <HBox prefHeight="46.0" prefWidth="940.0">
+         <children>
+            <Label prefHeight="47.0" prefWidth="365.0" text="   Vivero Hojas del Sur" textAlignment="CENTER">
+               <font>
+                  <Font size="32.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="alertaLabel" prefHeight="68.0" prefWidth="575.0" text="Alerta" textAlignment="CENTER" textFill="#ee0404" visible="false">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="6.0" layoutY="91.0" prefHeight="542.0" prefWidth="265.0" spacing="5.0">
+         <children>
+            <Label prefHeight="23.0" prefWidth="321.0" text="Tipo de Planta" />
+            <ChoiceBox fx:id="tipoChoice" onAction="#onSeleccionarTipo" prefWidth="150.0" />
+            <Label prefHeight="17.0" prefWidth="323.0" text="Nombre" />
+            <TextField fx:id="nombreText" />
+            <Label prefHeight="17.0" prefWidth="323.0" text="Altura" />
+            <TextField fx:id="alturaText" />
+            <Label prefHeight="17.0" prefWidth="324.0" text="Cantidad" />
+            <TextField fx:id="cantidadText" />
+            <VBox fx:id="interiorBox" prefHeight="61.0" prefWidth="321.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="323.0" text="Plantas de Interior" underline="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="322.0" text="Volumen de Maceta (L)" />
+                  <TextField fx:id="volumenText" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="exteriorBox" prefHeight="113.0" prefWidth="321.0" spacing="5.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="321.0" text="Plantas de Exterior" underline="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="321.0" text="Especie" />
+                  <TextField fx:id="especieText" />
+                  <CheckBox fx:id="resistenteCheck" mnemonicParsing="false" prefHeight="17.0" prefWidth="325.0" text="Resiste las heladas" />
+                  <CheckBox fx:id="disponibleCheck" mnemonicParsing="false" prefHeight="17.0" prefWidth="321.0" text="Listas para despacho" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <HBox prefHeight="39.0" prefWidth="255.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onGuardar" prefHeight="68.0" prefWidth="163.0" text="Guardar" />
+                  <Button mnemonicParsing="false" onAction="#onLimpiar" prefHeight="68.0" prefWidth="185.0" text="Limpiar" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="281.0" layoutY="138.0" prefHeight="369.0" prefWidth="642.0" spacing="20.0">
+         <children>
+            <TableView fx:id="plantaTableView" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="tipoColumn" prefWidth="75.0" text="Tipo" />
+                <TableColumn fx:id="nombreColumn" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="alturaColumn" prefWidth="75.0" text="Altura (cm)" />
+                  <TableColumn fx:id="cantidadColumn" prefWidth="75.0" text="Cantidad" />
+                  <TableColumn fx:id="precioColumn" prefWidth="75.0" text="Precio unitario" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Button mnemonicParsing="false" onAction="#onEliminar" prefHeight="48.0" prefWidth="226.0" text="Eliminar">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
 </AnchorPane>
