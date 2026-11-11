@@ -26,7 +26,7 @@
             <Label text="Película" GridPane.rowIndex="1" />
             <Label text="Duración (min)" GridPane.rowIndex="2" />
             <Label text="Entradas" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="cmbTipo" onAction="#onSeleccionarTipo" prefWidth="150.0" GridPane.columnIndex="1" />
             <TextField fx:id="txtPelicula" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtDuracion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtEntradas" GridPane.columnIndex="1" GridPane.rowIndex="3" />
